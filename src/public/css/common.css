@@ -1,0 +1,36 @@
+body {
+    font-family: "Inika", serif;
+}
+
+.header {
+    position: relative;
+    padding: 20px 15px;
+    border-bottom: 1px solid #E0DFDE;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1230px;
+}
+
+.header__logo {
+    color: #8B7969;
+    text-decoration: none;
+    font-size: 40px;
+}
+
+.header__button {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+}
+
+.contact-form__heading {
+    margin-bottom: 0 auto;
+    padding: 30px 15px 20px;
+    font-size: 35px;
+    text-align: center;
+    color: #8B7969;
+}

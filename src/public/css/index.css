@@ -1,0 +1,120 @@
+.contact-form__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.form {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+    color: #8B7969;
+}
+
+.form__group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.form__label--required {
+    color: #ff2f2f;
+}
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
+
+.form__input--text input,
+.form__input-name input,
+.form__input-tel input,
+.form__item-select select,
+.form__input--textarea textarea {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #F4F4F4;
+    background-color: #F4F4F4;
+    color: #BEB1A6;
+    appearance: none;
+}
+
+.form__input--text input,
+.form__input--textarea textarea {
+    width: 600px;
+}
+
+.form__input-name {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.form__input-name input {
+    width: 290px;
+}
+
+.form__input--radio {
+    display: flex;
+    justify-content: left;
+    width: 600px;
+    accent-color: #8B7969;
+    gap: 50px;
+}
+
+.form__input--radio label {
+    display: inline-flex;
+    align-items: center;
+    font-size: 18px;
+}
+
+.form__input-tel {
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+    align-items: center;
+    gap: 8px;
+}
+
+.form__input-tel input {
+    width: 30%;
+    text-align: center;
+}
+
+.form__item-select,
+.form__error-detail {
+    position: relative;
+    right: 200px;
+    width: 400px;
+}
+
+.form__item-select select {
+    width: 100%;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon points='70,100 110,50 30,50' fill='%23BEB1A6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 50px;
+}
+
+.form__input--text input {
+    height: 40px;
+}
+
+.form__input--textarea textarea {
+    height: 120px;
+}
+
+.form__button {
+    margin-top: 30px;
+}
+
+.form__button-submit {
+    padding: 10px;
+    width: 30%;
+    height: 50px;
+    border: none;
+    background: #82756A;
+    color: #fff;
+    cursor: pointer;
+}
