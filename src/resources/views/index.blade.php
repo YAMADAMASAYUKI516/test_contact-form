@@ -8,7 +8,7 @@
 
 @section('content')
         <div class="contact-form__content">
-            <form class="form" action="/contacts/confirm" method="post">
+            <form class="form" action="/confirm" method="post">
             @csrf
                 <div class="form__group">
                     <div class="form__group-title">
@@ -119,11 +119,11 @@
                         <div class="form__item-select">
                             <select name="category_id" value="{{ old('category_id') }}">
                                 <option value="">選択してください</option>
-                                {{-- @foreach ($categories as $category)
+                                @foreach ($categories as $category)
                                     <option value="{{ $category['id'] }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
                                         {{ $category['content'] }}
                                     </option>
-                                @endforeach --}}
+                                @endforeach
                             </select>
                         </div>
                         <div class="form__error">

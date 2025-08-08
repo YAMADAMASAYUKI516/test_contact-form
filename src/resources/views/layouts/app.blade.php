@@ -32,7 +32,7 @@
         </div>
         @yield('content')
     </main>
-    @yield('script')
+    @yield('js')
 </body>
 
 </html>
