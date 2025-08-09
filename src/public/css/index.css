@@ -45,6 +45,10 @@
     width: 600px;
 }
 
+.form__input--text input {
+    height: 40px;
+}
+
 .form__input-name {
     display: flex;
     justify-content: space-between;
@@ -95,10 +99,6 @@
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 50px;
-}
-
-.form__input--text input {
-    height: 40px;
 }
 
 .form__input--textarea textarea {

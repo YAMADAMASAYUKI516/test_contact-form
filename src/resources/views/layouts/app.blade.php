@@ -21,7 +21,7 @@
                 FashionablyLate
             </div>
         </div>
-        <div class="header__button">
+        <div class="header-nav__button">
             @yield('button')
         </div>
     </header>

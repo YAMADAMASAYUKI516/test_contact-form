@@ -1,0 +1,147 @@
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* 垂直中央揃え */
+    max-width: 70%;
+    /* テーブルの幅に合わせて調整 */
+    margin: 0 auto 20px;
+    /* 中央寄せ＋下に余白 */
+}
+
+.export-button {
+    background-color: #E1DBD699;
+    color: #8B7969;
+    font-size: 14px;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.pagination-wrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+svg.w-5.h-5 {
+    width: 30px;
+    height: 30px;
+}
+
+table {
+    margin: 0 auto;
+    width: 70%;
+    border-left: 1px solid #E0DFDE;
+    border-right: 1px solid #E0DFDE;
+}
+
+th {
+    background-color: #8B7969;
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 5px 40px;
+    text-align: left;
+}
+
+td {
+    padding: 25px 40px;
+    font-size: 20px;
+    color: #8B7969;
+    text-align: left;
+    border-top: 1px solid #E0DFDE;
+    border-bottom: 1px solid #E0DFDE;
+}
+
+.form__button {
+    margin-top: 30px;
+}
+
+.form__button-submit {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background: #ffffff;
+    color: #000000;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__content {
+    background-color: #fff;
+    margin: auto;
+    padding: 30px 40px;
+    border: 1px solid #888;
+    width: 40vw;
+    height: 80vh;
+    position: relative;
+    border-radius: 8px;
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.modal__table {
+    display: table;
+    width: 100%;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 20px;
+}
+
+.modal__row {
+    display: table-row;
+    margin-bottom: 10px;
+}
+
+.modal__label,
+.modal__value {
+    display: table-cell;
+    padding: 20px 0;
+    vertical-align: top;
+}
+
+.modal__label {
+    width: 180px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.modal__value {
+    padding-left: 10px;
+    word-break: break-word;
+}
+
+.modal__footer {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.modal__delete-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}

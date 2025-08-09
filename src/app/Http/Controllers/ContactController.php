@@ -34,8 +34,8 @@ class ContactController extends Controller
                 ->withInput($request->all());
         }
 
-        // $contact = $request->only(['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail',]);
-        // Contact::create($contact);
+        $contact = $request->only(['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail',]);
+        Contact::create($contact);
 
         return view('thanks');
     }

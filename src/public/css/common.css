@@ -21,10 +21,27 @@ body {
     font-size: 40px;
 }
 
-.header__button {
+.header-nav__button {
     position: absolute;
-    top: 20px;
-    right: 15px;
+    top: 50%;
+    right: 5%;
+    transform: translateY(-50%);
+}
+
+.header-nav__button a,
+.header-nav__button button {
+    width: 100px;
+    height: 34px;
+    font-size: 20px;
+    border: 1px solid #D9C6B5;
+    background: #F0F0F099;
+    color: #D9C6B5;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-form__heading {
