@@ -14,10 +14,38 @@
 @section('title', 'Admin')
 
 @section('content')
+<div class="search-bar">
+    <form class="search-bar__form" method="GET" action="{{ url('/admin') }}">
+        <input type="text" name="keyword" class="search-bar__input" placeholder="名前やメールアドレスを入力してください" value="{{ request('keyword') }}">
+
+        <select class="search-bar__gender" name="gender">
+            <option value="" disabled {{ is_null(request('gender')) ? 'selected' : '' }}>性別</option>
+            <option value="男性" {{ request('gender') === '男性' ? 'selected' : '' }}>男性</option>
+            <option value="女性" {{ request('gender') === '女性' ? 'selected' : '' }}>女性</option>
+            <option value="その他" {{ request('gender') === 'その他' ? 'selected' : '' }}>その他</option>
+        </select>
+
+        <select class="search-bar__category" name="category">
+            <option value="" disabled {{ is_null(request('category')) ? 'selected' : '' }}>お問い合わせの種類</option>
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}" {{ request('category') == $category->id ? 'selected' : '' }}>
+                    {{ $category->content }}
+                </option>
+            @endforeach
+        </select>
+
+        <input class="search-bar__date" type="date" name="registered_date" id="custom-date" value="{{ request('registered_date') }}">
+
+        <button type="submit" class="search-bar__button search-bar__button--search">検索</button>
+        <a href="/admin" class="search-bar__button search-bar__button--reset">リセット</a>
+    </form>
+</div>
+
 <div class="admin-header">
     <button class="export-button">エクスポート</button>
-    {{ $contacts->links() }}
+    {{ $contacts->onEachSide(1)->links('vendor.pagination.custom') }}
 </div>
+
 <table>
     <tr>
         <th>お名前</th>
@@ -116,6 +144,16 @@
                     modal.style.display = 'none';
                 }
             });
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const dateInput = document.getElementById('custom-date');
+
+        dateInput.addEventListener('click', function () {
+            if (dateInput.showPicker) {
+                dateInput.showPicker();
+            }
         });
     });
 </script>

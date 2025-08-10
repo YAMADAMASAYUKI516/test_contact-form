@@ -32,4 +32,4 @@ Route::post('/logout', function () {
     request()->session()->regenerateToken();
     return redirect('/login');
 });
-Route::delete('/contacts/{id}', [ContactController::class, 'destroy'])->name('contacts.destroy');
+Route::delete('/contacts/{id}', [UserController::class, 'destroy'])->name('contacts.destroy');
