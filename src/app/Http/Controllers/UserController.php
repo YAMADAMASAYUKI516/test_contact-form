@@ -90,7 +90,6 @@ class UserController extends Controller
     {
         $query = Contact::with('category');
 
-        // 絞り込み検索の条件を同じように適用
         if ($request->filled('keyword')) {
             $keyword = $request->input('keyword');
             $query->where(function ($q) use ($keyword) {
@@ -112,7 +111,6 @@ class UserController extends Controller
 
         $contacts = $query->get();
 
-        // CSV作成
         $csvHeader = ['姓', '名', '性別', 'メールアドレス', '電話番号', '住所', '建物', 'お問い合わせの種類', 'お問い合わせ内容', '登録日'];
 
         $callback = function () use ($contacts, $csvHeader) {

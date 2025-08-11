@@ -43,7 +43,6 @@
 
 <div class="admin-header">
     <form method="GET" action="{{ route('admin.export') }}">
-        {{-- 検索条件をhiddenで送るか、同じフォーム内にまとめる --}}
         <input type="hidden" name="keyword" value="{{ request('keyword') }}">
         <input type="hidden" name="gender" value="{{ request('gender') }}">
         <input type="hidden" name="category" value="{{ request('category') }}">
