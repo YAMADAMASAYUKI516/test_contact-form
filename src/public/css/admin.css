@@ -38,7 +38,6 @@
 
 .search-bar__input {
     background-color: #FBFBFB;
-    border: 1px solid #E3DED9;
     width: 30%;
     color: #BEB1A6;
     font-size: 18px;
@@ -48,7 +47,6 @@
 .search-bar__category,
 .search-bar__date {
     background-color: #F4F4F4;
-    border: 1px solid #E3DED9;
     color: #8B7969;
     font-size: 17px;
 }
@@ -180,10 +178,10 @@ td {
     color: #D9C6B5;
     cursor: pointer;
     text-align: center;
-    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
 }
 
 .modal {
@@ -196,7 +194,6 @@ td {
     width: 100%;
     height: 100%;
     overflow: auto;
-    /* background-color: rgba(0, 0, 0, 0.4); */
 }
 
 .modal__content {
