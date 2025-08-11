@@ -51,7 +51,6 @@ class UserController extends Controller
     {
         $query = Contact::with('category');
 
-        // 名前・メールの部分一致（OR検索）
         if ($request->filled('keyword')) {
             $keyword = $request->input('keyword');
 
@@ -63,22 +62,18 @@ class UserController extends Controller
             });
         }
 
-        // 性別フィルタ
         if ($request->has('gender') && $request->input('gender') !== '') {
             $query->where('gender', $request->input('gender'));
         }
 
-        // カテゴリフィルタ
         if ($request->has('category') && $request->category !== '') {
             $query->where('category_id', $request->category);
         }
 
-        // 登録日（created_at のピンポイント一致）
         if (!empty($request->registered_date)) {
             $query->whereDate('created_at', $request->registered_date);
         }
 
-        // ページネーション＋クエリ保持
         $contacts = $query->paginate(7)->appends($request->query());
         $categories = Category::all();
 
@@ -89,5 +84,66 @@ class UserController extends Controller
     {
         Contact::destroy($id);
         return redirect()->back();
+    }
+
+    public function export(Request $request)
+    {
+        $query = Contact::with('category');
+
+        // 絞り込み検索の条件を同じように適用
+        if ($request->filled('keyword')) {
+            $keyword = $request->input('keyword');
+            $query->where(function ($q) use ($keyword) {
+                $q->where('last_name', 'like', "%{$keyword}%")
+                ->orWhere('first_name', 'like', "%{$keyword}%")
+                ->orWhereRaw("CONCAT(last_name, first_name) LIKE ?", ["%{$keyword}%"])
+                ->orWhere('email', 'like', "%{$keyword}%");
+            });
+        }
+        if ($request->filled('gender')) {
+            $query->where('gender', $request->input('gender'));
+        }
+        if ($request->filled('category')) {
+            $query->where('category_id', $request->input('category'));
+        }
+        if ($request->filled('created_at')) {
+            $query->whereDate('created_at', $request->input('created_at'));
+        }
+
+        $contacts = $query->get();
+
+        // CSV作成
+        $csvHeader = ['姓', '名', '性別', 'メールアドレス', '電話番号', '住所', '建物', 'お問い合わせの種類', 'お問い合わせ内容', '登録日'];
+
+        $callback = function () use ($contacts, $csvHeader) {
+            $file = fopen('php://output', 'w');
+            mb_convert_variables('SJIS-win', 'UTF-8', $csvHeader);
+            fputcsv($file, $csvHeader);
+
+            foreach ($contacts as $contact) {
+                $row = [
+                    $contact->last_name,
+                    $contact->first_name,
+                    $contact->gender,
+                    $contact->email,
+                    $contact->tel,
+                    $contact->address,
+                    $contact->building,
+                    $contact->category->content ?? '',
+                    $contact->detail,
+                    $contact->created_at->format('Y-m-d H:i:s'),
+                ];
+                mb_convert_variables('SJIS-win', 'UTF-8', $row);
+                fputcsv($file, $row);
+            }
+            fclose($file);
+        };
+
+        $fileName = 'contacts_export_' . now()->format('Ymd_His') . '.csv';
+
+        return response()->streamDownload($callback, $fileName, [
+            'Content-Type' => 'text/csv',
+            'Content-Disposition' => "attachment; filename=\"{$fileName}\"",
+        ]);
     }
 }

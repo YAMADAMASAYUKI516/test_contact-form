@@ -42,7 +42,14 @@
 </div>
 
 <div class="admin-header">
-    <button class="export-button">エクスポート</button>
+    <form method="GET" action="{{ route('admin.export') }}">
+        {{-- 検索条件をhiddenで送るか、同じフォーム内にまとめる --}}
+        <input type="hidden" name="keyword" value="{{ request('keyword') }}">
+        <input type="hidden" name="gender" value="{{ request('gender') }}">
+        <input type="hidden" name="category" value="{{ request('category') }}">
+        <input type="hidden" name="created_at" value="{{ request('created_at') }}">
+        <button type="submit" class="export-button">エクスポート</button>
+    </form>
     {{ $contacts->onEachSide(1)->links('vendor.pagination.custom') }}
 </div>
 

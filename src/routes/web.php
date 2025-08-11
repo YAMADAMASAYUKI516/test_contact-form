@@ -33,3 +33,5 @@ Route::post('/logout', function () {
     return redirect('/login');
 });
 Route::delete('/contacts/{id}', [UserController::class, 'destroy'])->name('contacts.destroy');
+
+Route::get('/admin/export', [UserController::class, 'export'])->middleware('auth')->name('admin.export');
