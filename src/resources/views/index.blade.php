@@ -37,9 +37,18 @@
                     </div>
                     <div class="form__group-content">
                         <div class="form__input--radio">
-                            <label><input type="radio" name="gender" value="男性" {{ old('gender', '男性') == '男性' ? 'checked' : '' }}>男性</label>
-                            <label><input type="radio" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }}>女性</label>
-                            <label><input type="radio" name="gender" value="その他" {{ old('gender') == 'その他' ? 'checked' : '' }}>その他</label>
+                            <label>
+                                <input type="radio" name="gender" value="男性" {{ old('gender', '男性') == '男性' ? 'checked' : '' }}>
+                                <span class="form__input--radio-label">男性</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="女性" {{ old('gender') == '女性' ? 'checked' : '' }}>
+                                <span class="form__input--radio-label">女性</span>
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="その他" {{ old('gender') == 'その他' ? 'checked' : '' }}>
+                                <span class="form__input--radio-label">その他</span>
+                            </label>
                         </div>
                         <div class="form__error">
                             @error('gender')

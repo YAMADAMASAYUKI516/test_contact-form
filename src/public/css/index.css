@@ -78,10 +78,45 @@
     accent-color: #8B7969;
 }
 
+.form__input--radio input {
+    appearance: none;
+    position: absolute;
+}
+
 .form__input--radio label {
     display: inline-flex;
     align-items: center;
     font-size: 18px;
+}
+
+.form__input--radio-label {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form__input--radio-label::before {
+    content: '';
+    display: block;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #8B7969;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.form__input--radio-label::after {
+    content: '';
+    position: absolute;
+    display: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: #8B7969;
+}
+
+.form__input--radio input:checked+.form__input--radio-label::after {
+    display: block;
 }
 
 .form__input-tel {
